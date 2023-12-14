@@ -57,6 +57,7 @@ Transactional Control Language:
 > Save Point: It is used to save the data on the temporary basis in the database
 
 #SQL
+
      SQL is a standard language for storing, manipulating and retrieving data in databases.
      
      Our SQL tutorial will teach you how to use SQL in: MySQL, SQL Server, MS Access, Oracle, Sybase, Informix, Postgres, and other database systems.
