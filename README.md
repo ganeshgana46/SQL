@@ -56,6 +56,23 @@ Transactional Control Language:
 > Commit: It is used to apply or save changes in the database
 > Save Point: It is used to save the data on the temporary basis in the database
 
+#Overview
+
+> Quick Introduction of SQL
+> Create a Database and Table
+> Insert
+> Select Data
+> Where Clauses
+> Update Data
+> Delete
+> Change Table (new column, update column)
+> Create a primary key
+> Create an index
+> Create Foreign Keys
+> Joins and Relationships
+> Functions
+> Group By
+
 #SQL
 
      SQL is a standard language for storing, manipulating and retrieving data in databases.
@@ -76,4 +93,5 @@ Transactional Control Language:
      > It provides an integrated tool called MySQL Workbench.
      > MySQL uses SQL for data Management.
 
+#
 
