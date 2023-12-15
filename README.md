@@ -73,6 +73,14 @@ Transactional Control Language:
 > Functions
 > Group By
 
+
+#Tools to write SQL
+
+> SQL server management studio (SSMS)
+> SQL Developer
+> SQL Workbench
+> TOAD
+
 #SQL
 
      SQL is a standard language for storing, manipulating and retrieving data in databases.
@@ -93,5 +101,16 @@ Transactional Control Language:
      > It provides an integrated tool called MySQL Workbench.
      > MySQL uses SQL for data Management.
 
-#
+# Session - 1
+> What is DBMS and RDBMS and non-RDBMS ?
+> What is Database ? ---> Data Storage area
+> What is SQL ?
+      SQL (Structure Query Language) --> used to communicate to the database to perform different kinds of operations.
+> Database Components - Client & Server
+     Server :
+        Data is actually stored in the Database server (Remote machines)
+     Client :
+        We can send SQL Commands using client software
+      
+      
 
