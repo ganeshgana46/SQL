@@ -113,6 +113,12 @@ Transactional Control Language:
         We can send SQL Commands using client software
       
 # Session - 2
+
+1) Create database
+2) Created Table Student
+3) Inserted data into student table
+4) Select / Retrieve the data from a table
+
 >> What is Database and schema ?
 >> Database Languages
   1.DDL (Data Definition Language)
@@ -149,3 +155,21 @@ Transactional Control Language:
 Example:
 - USE mydb;
 - CREATE TABLE STUDENTS(SNO INT(5), SNAME VARCHAR(15), MARKS INT(3));
+
+>> Inserting data into table
+>  INSERT INTO <<TABLE NAME>> VALUES(VAL1,VAL2,VAL3...);
+
+Example:
+- USE mydb;
+- INSERT INTO STUDENTS VALUES (101,"KIRAN",80);
+- INSERT INTO STUDENTS (SNAME,SNO,MARKS) VALUES("RAM",102,60);
+- INSERT INTO STUDENTS VALUES (103,"KRISHNA",NULL);
+
+>> Selecting Rows from a table
+- USE hr;
+- SELECT * FROM EMPLOYEES;
+- SELECT EMPLOYEE_ID, FIRST_NAME, SALARY FROM EMPLOYEES;
+- SELECT EMPLOYEE_ID EMPID, FIRST_NAME, SALARY+5000 SAL FROM EMPLOYEES;
+
+>> SQL Data Types :
+- https://www.w3schools.com/mysql/mysql_datatypes.asp
