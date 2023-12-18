@@ -112,5 +112,40 @@ Transactional Control Language:
      Client :
         We can send SQL Commands using client software
       
-      
+# Session - 2
+>> What is Database and schema ?
+>> Database Languages
+  1.DDL (Data Definition Language)
+  2.DML (Data Manipulation Language)
+  3.DRL/DQL (Data Retrieval Language / Data Query Language)
+  4.TCL (Transaction Control Language)
+  5.DCL (Data Control Language)
 
+- DDL (Data Definition Language):
+    CREATE, ALTER, DROP, TRUNCATE, RENAME
+- DML (Data Manipulation Language):
+    INSERT, UPDATE, DELETE
+- DRL/DQL (Data Retrieval Language / Data Query Language):
+    SELECT
+- TCL (Transaction Control Language):
+    COMMIT, ROLLBACK, SAVE POINT
+- DCL (Data Control Language):
+    GRANT, REVOKE
+
+>> Craete Database / Schema
+> Note : Both Database and Schema
+
+  - CREATE DATABASE mybd; ---> command used to create database
+  - DROP DATABASE mybd;   ---> command used to delete database
+
+  - CREATE SCHEMA mydb;   ---> command used to create database
+  - DROP SCHEMA mybd;     ---> command used to delete database
+
+  - CRAETE DATABASE IF NOT EXISTS mydb;
+
+>> Create Table
+>  create table <<TABLE NAME>> (col1 datatype,col2 datatype, col3 datatype...);
+
+Example:
+- USE mydb;
+- CREATE TABLE STUDENTS(SNO INT(5), SNAME VARCHAR(15), MARKS INT(3));
