@@ -118,6 +118,11 @@ Transactional Control Language:
 2) Created Table Student
 3) Inserted data into student table
 4) Select / Retrieve the data from a table
+5) Where (Filtering records based on condition)
+6) Distict (Displays unique records or removing duplicates)
+7) AND, OR and NOT
+8) BETWEEN, NOT BETWEEN
+9) Pattern Matching (Wild Card Characters)
 
 >> What is Database and schema ?
 >> Database Languages
@@ -173,3 +178,50 @@ Example:
 
 >> SQL Data Types :
 - https://www.w3schools.com/mysql/mysql_datatypes.asp
+
+>> Where Clause
+
+- Used for selecting the rows based on condition. (Filtering the rows using where condition)
+- USE hr;
+- SELECT * FROM EMPLOYEES;
+- SELECT * FROM EMPLOYEES WHERE SALARY>3000;
+- SELECT * FROM EMPLOYEES WHERE SALARY<=3000
+- SELECT * FROM EMPLOYEES WHERE DEPARTMENT_ID=30;
+- SELECT * FROM EMPLOYEES WHERE COMMISION_PCT is null;
+- SELECT * FROM EMPLOYEES WHERE FIRST_NAME='jennifer';
+- SELECT DISTINCT DEPARTMENT_ID FROM EMPLOYEES;
+- SELECT DISTINCT * FROM EMPLOYEES;
+
+>> Logical Operators (AND, OR, NOT)
+
+- USE hr;
+- SET SQL_SAFE_UPDATES = 0;
+- SELECT * FROM EMPLOYEES;
+- SELECT * FROM EMPLOYEES WHERE SALARY>15000 AND JOB_ID = 'AD_VP';
+- SELECT * FROM EMPLOYEES WHERE SALARY>15000 OR JOB_ID = 'AD_VP';
+- SELECT * FROM EMPLOYEES WHERE NOT FIRST_NAME='david';
+
+>> Between & In Operators
+
+- Between --> Used to display the rows which is following in the range of values.
+- Not Between
+- USE hr;
+- SELECT * FROM EMPLOYEES WHERE SALARY BETWEEN 10000 AND 12000;
+- SELECT * FROM EMPLOYEES WHERE SALARY NOT BETWEEN 10000 AND 12000;
+- IN --> IN operator return the rows when the values are matching in the list
+- Not In
+- SELECT * FROM EMPLOYEES WHERE SALARY=3400 OR SALARY=2500 OR SALARY=3000;
+- SELECT * FROM EMPLOYEES WHERE SALARY IN (3400,2500,3000);
+- SELECT * FROM EMPLOYEES WHERE SALARY NOT IN (3400,2500,3000);
+
+>>Pattern Matching Operators (whiled card characters)
+
+- % --> many characters
+- _ --> single character
+- SELECT * FROM EMPLOYEES WHERE FISRT_NAME LIKE 'S%';
+- SELECT * FROM EMPLOYEES WHERE FISRT_NAME LIKE '%r';
+- SELECT * FROM EMPLOYEES WHERE FISRT_NAME LIKE 'S%r';
+- SELECT * FROM EMPLOYEES WHERE FISRT_NAME LIKE '%m%';
+- SELECT * FROM EMPLOYEES WHERE FISRT_NAME NOT LIKE 'S%';
+- SELECT * FROM EMPLOYEES WHERE FISRT_NAME LIKE '%e_';
+- SELECT * FROM EMPLOYEES WHERE FISRT_NAME LIKE '___';
