@@ -272,7 +272,7 @@ CREATE & ALTER
   - ALTER TABLE STUDENT RENAME COLUMN SNAME TO STUNAME;
 
 
-# Session - 3
+# Session - 4
 
 MySQL Functions
   
@@ -380,5 +380,5 @@ String Functions :
    - SELECT COUNT(*) FROM EMPLOYEEs;
 
 
-# Session - 4 
+# Session - 5 
 
