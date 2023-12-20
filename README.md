@@ -225,3 +225,160 @@ Example:
 - SELECT * FROM EMPLOYEES WHERE FISRT_NAME NOT LIKE 'S%';
 - SELECT * FROM EMPLOYEES WHERE FISRT_NAME LIKE '%e_';
 - SELECT * FROM EMPLOYEES WHERE FISRT_NAME LIKE '___';
+
+# Session - 3
+
+>> DDL Commands (Data Definition Language)
+   1) CREATE
+   2) ALTER
+          -> Add new column
+          -> Drop a column
+          -> Modify Existing column
+          -> Rename the column
+   3) DROP
+   4) TRUNCATE
+   5) RENAME
+
+ Question : Difference between DROP, TRUNCATE and DELETE ?
+
+CREATE & ALTER
+
+> CREATE is used to create database objects (Database, Table, views, synonymes etc...)
+> ALTER
+  - Adding a new column
+  - Dropping the existing column
+  - Modifying the existing column (Increase / Decrease size of the column & change the data 
+    type of the column)
+  - Renaming
+
+  - USE mydb;
+  - SELECT * FROM STUDENT;
+  - DESCRIBE STUDENT;
+    
+  --> Adding a new column
+  - ALTER TABLE STUDENT ADD (grade varchar(2));
+    
+  --> Dropping a column from table
+  - ALTER TABLE STUDENT DROP COLUMN grade;
+
+  --> Modifying the existing column
+  - We can increase/decrease the size of the column.
+  - We can decrease the column size ONLY when existing column values can fit into new size
+  - Column should be empty should be empty to change its data type.
+
+  - ALTER TABLE STUDENT MODIFY COLUMN SNAME VARCHAR(20);
+
+  --> Remaining a column
+  - ALTER TABLE STUDENT RENAME COLUMN SNAME TO STUNAME;
+
+
+# Session - 3
+
+MySQL Functions
+  
+> Strings functions - operate on string data types
+> Numeric functions - operate on numeric data types
+> Date functions - operate on date data types
+> Aggregate functions - operate on all of the data types and produce summarized result sets.
+
+-----------------
+
+>> Strings Functions :
+
+> UPPER() - converts into upper case letters
+Eg : SELECT UPPER(First_name) from employees;
+
+> LOWER() - converts into lower case letters
+Eg : SELECT LOWER(First_name) from employees;
+
+> LENGTH() - return the length of string.
+Eg : SELECT LENGTH('GRADE');
+Eg : SELECT * FROM EMPLOYEES WHERE LENGTH(FIRST_NAME) = 4;
+
+> TRIM() : Removes the specified characters from both sides
+Eg : SELECT TRIM('  welcome  ') FROM Dual;
+Eg : SELECT TRIM('z' FROM 'zzoraclezz') FROM Dual;
+
+> INSTR() : Returns the position of the character within a string
+Eg : SELECT INSTR('WELCOME','O');
+
+String Functions :
+
+> SUBSTR()/SUBSTRING() : Returns the substring of the string.
+  - SELECT SUBSTR('ORACLE',2,3);     --> RAC
+  - SELECT SUBSTR('ORACLE',3,3);     --> ACL
+  - SELECT SUBSTR('ORACLE',4,3);     --> CLE
+  - SELECT SUBSTRING('ORACLE',2,3);  --> RAC
+  - SELECT SUBSTRING('ORACLE',3,3);  --> ACL
+  - SELECT SUBSTRING('ORACLE',2,3);  --> CLE
+  - SELECT SUBSTRING(FIRST_NAME,1,3) FROM EMPLOYEES;
+
+> CONCAT() : To join two strings.
+  - SELECT CONCAT('ORACLE','TRAINING');
+  - USE hr;
+  - SELECT CONCAT(FIRST_NAME,LAST_NAME) FULLNAME FROM EMPLOYEES;
+
+-----------------
+
+>> Numeric Functions :
+   - SELECT ABS(-40);
+   - SELECT ABS(40);
+   - SELECT SQRT(25;
+   - select MOD(10,3);
+   - select power(2,5);
+
+   > TRUNCATE(): function truncates a number to the specified number of decimal places.
+     - SELECT TRUNCATE(40.1234,3);     --  40.123
+     - SELECT TRUNCATE(40.1234,2);     --  40.12
+     - SELECT TRUNCATE(6876,-1);       --  6870
+     - SELECT TRUNCATE(6876,-2);       --  6800
+     - SELECT TRUNCATE(68763456,-5);   --  68700000
+  > GREATEST() & LEAST(): returns greatest, least values in the provided values.
+     - SELECT GREATEST(100,200,300,400,500);
+     - SELECT LEAST(100,200,300);
+
+-----------------
+
+>> Date Functions
+
+ > CURDATE()/CURRENT_DATE() function returns the current date
+    - SELECT CURDATE();
+    - SELECT CURRENT_DATE();
+ > CURTIME()/CURRENT_TIME() function returns the current time
+    - SELECT CURTIME();
+    - SELECT CURRENT_TIME();
+ > NOW() function returns the current date and time
+    - SELECT NOW();
+ > SYSDATE() function returns the current date and time
+    - SELECT SYSDATE();
+ > MONTH()
+    - SELECT MONTH("2019-05-19");   --  5
+ > YEAR()
+    - SELECT YEAR("2019-05-19");    --  2019
+ > DAY()
+    - SELECT DAY("2019-05-19");     --  19
+
+>> Queries on Date Functions
+
+   > Display employees who are joined in 1987.
+      - SELECT * FROM EMPLOYEES WHERE YEAR(HIRE_DATE) = "1987";
+   > Display employees who are joined in june.
+      - SELECT * FROM EMPLOYEES WHERE MONTH(HIRE_DATE) = "6";
+      - SELECT * FROM EMPLOYEES WHERE MONTHNAME(HIRE_DATE) = "JUNE";
+
+-----------------
+
+>> Aggregate Functions
+
+   - Aggregate Function are all about performing calculations on multiple rows of a single
+     column of a table and returning a single value.
+   - USE hr;
+   - SELECT AVG(SALARY) FROM EMPLOYEEs;
+   - SELECT SUM(SALARY) FROM EMPLOYEEs;
+   - SELECT MIN(SALARY) FROM EMPLOYEEs;
+   - SELECT MAX(SALARY) FROM EMPLOYEEs;
+   - SELECT COUNT(*) FROM EMPLOYEEs;
+
+
+# Session - 4 
+
