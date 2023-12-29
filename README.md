@@ -382,5 +382,124 @@ String Functions :
 
 # Session - 5 
 
+Group By  -->  Grouping results from a table
+Having
 
+     Where ----> Group By ----> Having
+
+Group By clause :
+
+> The GROUP BY clause groups records into summary rows.
+> GROUP BY returns one records for each group.
+> GROUP BY typically also involves aggregates: COUNT, MAX, SUM, AVG, etc.
+> GROUP BY can group by one or more columns.
+
+Examples :
+
+SELECT DEPARTMENT_ID,SUM(SALARY) FROM EMPLOYEES GROUP BY DEPARTMENT_ID;
+
+SELECT DEPARTMENT_ID,AVG(SALARY) FROM EMPLOYEES GROUP BY DEPARTMENT_ID;
+
+SELECT DEPARTMENT_ID, MAX(SALARY), MIN(SALARY) FROM EMPLOYEES GROUP BY DEPARTMENT_ID;
+
+SELECT JOB_ID, COUNT(*) FROM EMPLOYEES GROUP BY JOB_ID;
+
+All the columns in the select list should include in group by clause.
+
+SELECT DEPARTMENT_ID, JOB_ID, SUM(SALARY) FROM EMPLOYEES GROUP BY DEPARTMENT_ID, JOB_ID;
+
+SELECT DEPARTMENT_ID,SUM(SALARY), FIRST_NAME FROM EMPLOYEES GROUP BY DEPARTMENT_ID; // Invalid query
+
+Having & Order by clause
+
+Having clause: 
+
+> Having clause is used to filter the output from the group by clause.
+
+Examples :
+
+SELECT DEPARTMENT_ID, SUM(SALARY) FROM EMPLOYEES GROUP BY DEPARTMENT_ID HAVING SUM(SALARY)>20000;
+
+SELECT DEPARTMENT_ID, SUM(SALARY) FROM EMPLOYEES WHERE DEPARTMENT_ID<>50 GROUP BY DEPARTMENT_ID;
+
+Order By clause: 
+
+> Order by clause is used to arrange the rows in a table (ascending or descending order).
+
+SELECT * FROM EMPLOYEES ORDER BY DEPARTMENT_ID DESC;
+
+SELECT * FROM EMPLOYEES ORDER BY SALARY;
+
+-----------
+
+Order Of Execution
+
+Where-> Group by->Having-> Order By
+
+SELECT column-names
+
+FROM table-name
+
+WHERE condition
+
+GROUP BY column-names Having condition
+
+ORDER BY column-names
+
+SELECT DEPARTMENT_ID,SUM(SALARY) FROM EMPLOYEES GROUP BY DEPARTMENT_ID HAVING SUM(SALARY)>20000 ORDER BY SUM(SALARY);
+
+SELECT DEPARTMENT_ID,SUM(SALARY) FROM EMPLOYEES WHERE DEPARTMENT_ID<>100 GROUP BY DEPARTMENT_ID HAVING SUM(SALARY)>20000 ORDER BY SUM(SALARY)DESC;
+
+# Session - 6
+
+Set Operators :
+
+> UNION
+> UNION ALL
+> INTERSECT
+> MINUS
+
+UNION & UNION ALL
+
+The UNION operator is used to combine the result-set of two or more SELECT statements.
+
+Each SELECT statement within UNION must have the same number of columns
+
+The columns must also have similar data types
+
+The columns in each SELECT statement must also be in the same order
+
+-------
+
+UNION & UNION ALL..
+
+CREATE TABLE A(SNAME varchar(10), NUM INT(2));
+
+CREATE TABLE B(NUM INT(2), GRADE VARCHAR(3));
+
+INSERT INTO A VALUES('ABC', 10);
+
+INSERT INTO A VALUES('XYZ', 11);
+
+INSERT INTO A VALUES('PQR',12);
+
+INSERT INTO A VALUES('MNO', 14);
+
+COMMIT;
+
+INSERT INTO B VALUES(11,'A');
+
+INSERT INTO B VALUES(12,'B');
+
+INSERT INTO B VALUES(13,'C');
+
+INSERT INTO B VALUES(15,'B');
+
+COMMIT
+
+Displays all the records from multiple tables without duplicates.
+SELECT NUM FROM A UNION SELECT NUM FROM B;
+
+Displays all the records from multiple tables including duplicates.
+SELECT NUM FROM A UNION ALL SELECT NUM FROM B;
 
