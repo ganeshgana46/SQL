@@ -503,3 +503,78 @@ SELECT NUM FROM A UNION SELECT NUM FROM B;
 Displays all the records from multiple tables including duplicates.
 SELECT NUM FROM A UNION ALL SELECT NUM FROM B;
 
+# Session - 7
+
+>> SQL Joins
+
+Joins help retrieving data from two or more database tables.
+
+The tables are mutually related using primary and foreign keys.
+
+>> Types of Joins
+
+1. Equi Join/Inner Join/Simple Join : Matched/common records
+
+   Inner/Equi join (Returns Only matched records from Tab1 & Tab2)
+   SELECT * FROM TAB1 INNER JOIN TAB2 ON TAB1.NUMID=TAB2.NUMID;
+
+2. Right Join : Matched records from both the table + Unmatched records from right table
+
+   Right outer join (Returns matched records+ unmatched from right table Tab1)
+   SELECT * FROM TAB1 RIGHT JOIN TAB2 ON TAB1.NUMID=TAB2.NUMID;
+
+3. Left Join : Matched records from both the table + Unmatched records from left table
+
+   Left outer join (Returns matched records+ unmatched from right table Tab2)
+   SELECT * FROM TAB1 LEFT JOIN TAB2 ON TAB1.NUMID=TAB2.NUMID;
+
+4. Full Join : Matched records from both the table + Unmatched records from right table + Unmatched records from left table
+
+   Full outer join (Returns matched records+ unmatched from both tables) -- not supported in mysql
+   SELECT * FROM TAB1 FULL JOIN TAB2 t2 ON t1.NUMID=t2.NUMID;
+
+5. Self Join ---> Join with a table with same table
+
+--------------
+
+>> Sub Queries
+
+> Sub Query is a Query within a Query.
+
+Sub Query contains 2 parts.
+
+1. Outer Query
+
+2. Inner Query
+
+> The output of inner query is become input of outer query.
+
+2 Types of Sub Queries:
+
+1. Single row sub query, <=, >=, !=
+
+2. Multi row Sub Query. IN. ANY ,ALL
+   
+--> Single Row Sub Queries...
+
+Find the salary of employees whose salary is greater than the salary of employee whose EMPLOYEE_ID 150.
+
+SELECT SALARY FROM EMPLOYEES WHERE SALARY>(SELECT SALARY FROM EMPLOYEES WHERE EMPLOYEE_ID=150);
+
+Display the employees who all are earning the highest salary.
+
+SELECT * FROM EMPLOYEES WHERE SALARY=(SELECT MAX(SALARY) FROM EMPLOYEES);
+
+--> Multi Row Sub Queries
+
+Display employees whose salary is equal to the salary of the at least one employee in department id 30.
+
+SELECT * FROM EMPLOYEES WHERE SALARY IN (SELECT SALARY FROM EMPLOYEES WHERE DEPARTMENT_ID=30);
+
+Display the employees whose salary is greater than the at least on employee in department id 30.
+
+SELECT * FROM EMPLOYEES WHERE SALARY>ANY(SELECT SALARY FROM EMPLOYEES WHERE DEPARTMENT_ID=30); I
+
+Display the employees whose salary is less than the at least on employee in department id 30.
+
+SELECT * FROM EMPLOYEES WHERE SALARY<ANY(SELECT SALARY FROM EMPLOYEES WHERE DEPARTMENT_ID=30);
