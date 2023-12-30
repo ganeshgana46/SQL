@@ -14,7 +14,7 @@ RDBMS:
 NoSQL: 
      Data is organized in the form of key-value pairs, documents, graphs, or column-based. These are designed to handle large-scale, high-performance scenarios.
 
-Database Languages
+Database Languages or Types of SQL Statements
 Data Definition Language
 Data Manipulation Language
 Data Control Language
