@@ -216,8 +216,8 @@ Example:
 
 >>Pattern Matching Operators (whiled card characters)
 
-- % --> many characters
-- _ --> single character
+- % --> It represents many characters
+- _ --> It represents single character
 - SELECT * FROM EMPLOYEES WHERE FISRT_NAME LIKE 'S%';
 - SELECT * FROM EMPLOYEES WHERE FISRT_NAME LIKE '%r';
 - SELECT * FROM EMPLOYEES WHERE FISRT_NAME LIKE 'S%r';
